@@ -12,6 +12,11 @@ class Message{
         if (!created || isNaN(created)){
             throw new Error('Invalid created');
         }
+
+        if(Message.prototype.hasOwnProperty.call(this, '_created')){
+            throw new Error('Created already defined');
+        }
+
         this._created = created;
     }
     toString(){
